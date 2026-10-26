@@ -15,7 +15,7 @@
 \fancypagestyle{reportbody}{%
   \fancyhf{}
   \fancyfoot[C]{\zihao{-5}\textbf{\thepage}}
-  \renewcommand\headrulewidth{0.5pt}\renewcommand\footrulewidth{0pt}}
+  \renewcommand\headrulewidth{0pt}\renewcommand\footrulewidth{0pt}}
 \titlecontents{section}[1.5em]
   {\zihao{-4}\setlength{\baselineskip}{20bp}}
   {\contentspush{\thecontentslabel\hspace{0.5\ccwd}}}{}
@@ -25,12 +25,15 @@
   {\contentspush{\thecontentslabel\hspace{0.5\ccwd}}}{}
   {\titlerule*[3bp]{$\cdot$}\contentspage}[\vskip 1.8bp]
 \newcommand\ReportContents{%
-  \clearpage\thispagestyle{reportfront}
+  \clearpage\pagenumbering{Roman}\thispagestyle{reportfront}
   {\centering\linespread{1}\zihao{-2}\heiti\bfseries 目\hspace{\ccwd}录\par}
   \vspace{12bp}\@starttoc{toc}\clearpage}
 \newif\ifReportBibliography
 \newcommand\ReportReferences{%
+  \begingroup
+  \ctexset{chapter={format=\linespread{1}\zihao{-2}\heiti\bfseries\centering}}
   \chapter*{参考文献}
+  \endgroup
   \phantomsection\addcontentsline{toc}{chapter}{参考文献}
   \setlength{\bibhang}{0bp}\setlength{\bibitemsep}{0bp}
   \setlength{\biblabelsep}{0.5\ccwd}\renewcommand\bibfont{\zihao{5}}
