@@ -1,0 +1,27 @@
+% !TeX program = xelatex
+% 编译：latexmk -xelatex main.tex
+\documentclass{cumtthesis}
+\cumtsetup{output={electronic}, thesis-type={硕士学位论文}, funding-on-cover={false}}
+\usepackage{report-format}
+\input{metadata}
+\addbibresource{references.bib}
+% 加入真实文献并使用 \cite{key} 后，取消下一行注释。
+%\ReportBibliographytrue
+\raggedbottom
+\begin{document}
+\hypersetup{pageanchor=false}
+\input{cover}
+\hypersetup{pageanchor=true}
+\frontmatter
+\pagestyle{reportfront}
+\ReportContents
+\mainmatter
+\pagestyle{reportbody}
+\input{chapters/01-background}
+\input{chapters/02-related-work}
+\input{chapters/03-research-content}
+\input{chapters/04-methodology}
+\input{chapters/05-foundation}
+\input{chapters/06-schedule}
+\ReportReferences
+\end{document}

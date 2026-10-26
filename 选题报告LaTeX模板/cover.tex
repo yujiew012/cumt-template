@@ -1,0 +1,93 @@
+% 原始 DOC 的字体属性及 Word 页面坐标；单位 bp（PDF point）。
+% 原文件 A4 尺寸为 595.44 × 841.92 bp，保留原页面尺寸和网格。
+% 封面专用字体不继承正文的 AutoFakeBold=3。
+\newfontfamily\coverLatin{Times New Roman}
+\newCJKfontfamily\coverXing[Path=Assets/Fonts/,AutoFakeBold=2.41828]{STXingKai.ttf}
+\newCJKfontfamily\coverHei[Path=Assets/Fonts/,AutoFakeBold=2.41828]{SimHei.ttf}
+\newCJKfontfamily\coverSong[Path=Assets/Fonts/,AutoFakeBold=2.85138]{SimSun.ttf}
+\newCJKfontfamily\coverFang[Path=Assets/Fonts/,AutoFakeBold=2.36706]{FangSong.ttf}
+\newCJKfontfamily\coverFangSmall[Path=Assets/Fonts/,AutoFakeBold=2.85138]{FangSong.ttf}
+\newCJKfontfamily\coverFangRegular[Path=Assets/Fonts/]{FangSong.ttf}
+\newcommand\coverText[5]{%
+  \put(#1,-#2){\makebox[0pt][l]{\scalebox{1}[0.980392]{%
+    \renewcommand\CJKglue{\hskip0.35344bp}\coverLatin#3\fontsize{#4bp}{#4bp}\selectfont#5}}}}
+\newcommand\coverPlainText[3]{\put(#1,-745.68){\makebox[0pt][l]{\coverFangRegular\fontsize{13.92bp}{13.92bp}\selectfont#3}}}
+\newcommand\coverRule[4]{\put(#1,-#2){\rule{#3bp}{#4bp}}}
+\newcommand\coverValue[2]{%
+  \put(243.12,-#1){\makebox[164.16bp][c]{\coverSong\fontsize{14bp}{14bp}\selectfont\bfseries#2}}}
+\clearpage
+\begingroup
+\thispagestyle{empty}
+\special{papersize=595.44bp,841.92bp}
+\AddToShipoutPictureFG*{\AtPageUpperLeft{%
+  \setlength{\unitlength}{1bp}%
+  % 校名：华文行楷 28 磅、加粗；保留原空格字宽。
+  \coverText{177.7595}{126.8658}{\coverXing\bfseries}{28.08}{中}
+  \coverText{220.5996}{126.8658}{\coverXing\bfseries}{28.08}{国}
+  \coverText{263.4396}{126.8658}{\coverXing\bfseries}{28.08}{矿}
+  \coverText{306.2798}{126.8658}{\coverXing\bfseries}{28.08}{业}
+  \coverText{349.1198}{126.8658}{\coverXing\bfseries}{28.08}{大}
+  \coverText{391.9601}{126.8658}{\coverXing\bfseries}{28.08}{学}
+  % 年级行：黑体 28 磅加粗，原下划线宽 57.12 / 28.56 bp，厚 2.64 bp。
+  \coverText{184.9524}{176.5458}{\coverHei\bfseries}{28.08}{级}
+  \coverText{242.0462}{176.5458}{\coverHei\bfseries}{28.08}{士}
+  \coverText{270.5931}{176.5458}{\coverHei\bfseries}{28.08}{\renewcommand\CJKglue{\hskip0.466875bp}\ReportDegreeType}
+  \coverText{384.7806}{176.5458}{\coverHei\bfseries}{28.08}{研}
+  \coverText{413.3274}{176.5458}{\coverHei\bfseries}{28.08}{究}
+  \coverText{441.8743}{176.5458}{\coverHei\bfseries}{28.08}{生}
+  \coverRule{127.92}{182.64}{57.12}{2.64}
+  \coverRule{213.60}{182.64}{28.56}{2.64}
+  \put(127.92,-176.55){\makebox[57.12bp][c]{\coverHei\fontsize{24bp}{24bp}\selectfont\bfseries\ReportGrade}}
+  \put(213.60,-176.55){\makebox[28.56bp][c]{\coverHei\fontsize{28bp}{28bp}\selectfont\bfseries\ReportDegree}}
+  % 竖排标题：仿宋_GB2312 32 磅加粗；62.4 bp 行间距。
+  \coverText{282.8196}{249.2282}{\coverFang\bfseries}{31.92}{选}
+  \coverText{282.8196}{311.6282}{\coverFang\bfseries}{31.92}{题}
+  \coverText{282.8196}{374.0282}{\coverFang\bfseries}{31.92}{报}
+  \coverText{282.8196}{436.4282}{\coverFang\bfseries}{31.92}{告}
+  % 五项信息：宋体 14 磅加粗，间距 31.2 bp。
+  \coverText{157.3899}{538.1246}{\coverSong\bfseries}{13.92}{选题}
+  \coverText{200.2102}{538.1246}{\coverSong\bfseries}{13.92}{名称：}
+  \coverText{157.3899}{569.3246}{\coverSong\bfseries}{13.92}{学}
+  \coverText{214.4836}{569.3246}{\coverSong\bfseries}{13.92}{院：}
+  \coverText{157.3899}{600.5246}{\coverSong\bfseries}{13.92}{学科}
+  \coverText{200.2102}{600.5246}{\coverSong\bfseries}{13.92}{专业：}
+  \coverText{157.3899}{631.7246}{\coverSong\bfseries}{13.92}{研究生姓名：}
+  \coverText{157.3899}{662.9246}{\coverSong\bfseries}{13.92}{导师}
+  \coverText{200.2102}{662.9246}{\coverSong\bfseries}{13.92}{姓名：}
+  \coverRule{243.12}{541.20}{164.16}{1.44}
+  \coverRule{243.12}{572.40}{164.16}{1.44}
+  \coverRule{243.12}{603.60}{164.16}{1.44}
+  \coverRule{243.12}{634.80}{164.16}{1.44}
+  \coverRule{243.12}{666.00}{164.16}{1.44}
+  \coverValue{538.12}{\ReportTitle}
+  \coverValue{569.32}{\ReportCollege}
+  \coverValue{600.52}{\ReportMajor}
+  \coverValue{631.72}{\ReportStudent}
+  \coverValue{662.92}{\ReportSupervisor}
+  % 落款：仿宋_GB2312 14 磅，加粗、字间距 1 bp。
+  \coverText{185.17799}{725.8046}{\coverFangSmall\bfseries}{13.92}{中}
+  \coverText{201.45883}{725.8046}{\coverFangSmall\bfseries}{13.92}{国}
+  \coverText{217.73965}{725.8046}{\coverFangSmall\bfseries}{13.92}{矿}
+  \coverText{234.02049}{725.8046}{\coverFangSmall\bfseries}{13.92}{业}
+  \coverText{250.30133}{725.8046}{\coverFangSmall\bfseries}{13.92}{大}
+  \coverText{266.58215}{725.8046}{\coverFangSmall\bfseries}{13.92}{学}
+  \coverText{282.86301}{725.8046}{\coverFangSmall\bfseries}{13.92}{学}
+  \coverText{299.14383}{725.8046}{\coverFangSmall\bfseries}{13.92}{位}
+  \coverText{315.42023}{725.8046}{\coverFangSmall\bfseries}{13.92}{管}
+  \coverText{331.70105}{725.8046}{\coverFangSmall\bfseries}{13.92}{理}
+  \coverText{347.98080}{725.8046}{\coverFangSmall\bfseries}{13.92}{办}
+  \coverText{364.26163}{725.8046}{\coverFangSmall\bfseries}{13.92}{公}
+  \coverText{380.54245}{725.8046}{\coverFangSmall\bfseries}{13.92}{室}
+  \coverText{396.82330}{725.8046}{\coverFangSmall\bfseries}{13.92}{制}
+  \coverPlainText{250.14}{}{年}
+  \coverPlainText{278.14}{}{月}
+  \coverPlainText{306.14}{}{日}
+  \coverPlainText{334.14}{}{填}
+  \put(213.14,-745.68){\makebox[35bp][r]{\coverLatin\fontsize{14bp}{14bp}\selectfont\ReportYear}}
+  \put(264.14,-745.68){\makebox[14bp][c]{\coverLatin\fontsize{10bp}{10bp}\selectfont\ReportMonth}}
+  \put(292.14,-745.68){\makebox[14bp][c]{\coverLatin\fontsize{10bp}{10bp}\selectfont\ReportDay}}
+  \coverRule{79.44}{760.56}{439.44}{1.44}
+}}
+\null\clearpage
+\endgroup
+\special{papersize=210mm,297mm}

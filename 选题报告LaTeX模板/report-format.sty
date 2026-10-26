@@ -1,0 +1,43 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{report-format}[2026/10/26 CUMT proposal report adaptations]
+\RequirePackage{eso-pic}
+% 上游 cumtthesis.cls 保持原样；选题报告差异集中在此文件。
+% 使用上游保存的原始 chapter 命令，去掉双语章节的强制要求。
+\RenewDocumentCommand\chapter{s m}{%
+  \IfBooleanTF{#1}{\buildinchapter*{#2}\markboth{#2}{}}{\buildinchapter{#2}}}
+\let\cleardoublepage\clearpage
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{2}
+\ctexset{chapter={pagestyle=reportbody,afterskip=12bp}}
+\fancypagestyle{reportfront}{%
+  \fancyhf{}\fancyfoot[C]{\zihao{-5}\textbf{\thepage}}
+  \renewcommand\headrulewidth{0pt}\renewcommand\footrulewidth{0pt}}
+\fancypagestyle{reportbody}{%
+  \fancyhf{}
+  \fancyfoot[C]{\zihao{-5}\textbf{\thepage}}
+  \renewcommand\headrulewidth{0.5pt}\renewcommand\footrulewidth{0pt}}
+\titlecontents{section}[1.5em]
+  {\zihao{-4}\setlength{\baselineskip}{20bp}}
+  {\contentspush{\thecontentslabel\hspace{0.5\ccwd}}}{}
+  {\titlerule*[3bp]{$\cdot$}\contentspage}[\vskip 1.8bp]
+\titlecontents{subsection}[3em]
+  {\zihao{-4}\setlength{\baselineskip}{20bp}}
+  {\contentspush{\thecontentslabel\hspace{0.5\ccwd}}}{}
+  {\titlerule*[3bp]{$\cdot$}\contentspage}[\vskip 1.8bp]
+\newcommand\ReportContents{%
+  \clearpage\thispagestyle{reportfront}
+  {\centering\linespread{1}\zihao{-2}\heiti\bfseries 目\hspace{\ccwd}录\par}
+  \vspace{12bp}\@starttoc{toc}\clearpage}
+\newif\ifReportBibliography
+\newcommand\ReportReferences{%
+  \chapter*{参考文献}
+  \phantomsection\addcontentsline{toc}{chapter}{参考文献}
+  \setlength{\bibhang}{0bp}\setlength{\bibitemsep}{0bp}
+  \setlength{\biblabelsep}{0.5\ccwd}\renewcommand\bibfont{\zihao{5}}
+  \ifReportBibliography
+    \begingroup\setstretch{1.587}\printbibliography[heading=none]\endgroup
+  \else
+    \noindent 待填写参考文献。
+  \fi
+}
+\newcommand\placeholder{\noindent 待填写。\par}
